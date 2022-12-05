@@ -1,0 +1,25 @@
+<template>
+  <div>
+    <div >
+      <ResCard class="rescard" :res="$store.state.book_researcher" next-to="/bookform"/>
+    </div>
+  </div>
+</template>
+
+<script>
+import ResCard from '../components/ResCard.vue'
+export default {
+  name: 'DatebyRes',
+  components:{
+    ResCard
+  },
+  data() {
+    return {
+      resCards: [{imgsrc:'/static/resimg.png', rname:'张胜利1', note:'xxx', intro:'研究员介绍：2021年12月22日-2021年12月24日为钻石客户锁定期，钻石客户服务预约将不定…'},
+                {imgsrc:'/static/resimg.png', rname:'张胜利2', note:'xxx', intro:'研究员介绍：2021年12月22日-2021年12月24日为钻石客户锁定期，钻石客户服务预约将不定…'},
+                {imgsrc:'/static/resimg.png', rname:'张胜利3', note:'xxx', intro:'研究员介绍：2021年12月22日-2021年12月24日为钻石客户锁定期，钻石客户服务预约将不定…'},
+                {imgsrc:'/static/resimg.png', rname:'张胜利4', note:'xxx', intro:'研究员介绍：2021年12月22日-2021年12月24日为钻石客户锁定期，钻石客户服务预约将不定…'},]
+    }
+  },
+}
+</script>
