@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "PingFangSC-Regular";
+  font-weight: normal;
+  font-style: normal;
+  font-display:auto;
+  src: local("PingFangSC-Regular"), url("../assets/fonts/PingFang SC.ttf");
+}

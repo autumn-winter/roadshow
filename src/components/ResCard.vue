@@ -5,7 +5,7 @@
       <p class="name">{{res.rname}}</p>
       <p class="note font1">{{res.note}}</p>
       <p class="intro font1">{{res.intro}}</p>
-      <button class="btn" @click="bookClick">{{btn}}</button>
+      <button v-if="btn" class="btn" @click="bookClick">{{btn}}</button>
     </div>
   </div>
 </template>
@@ -49,15 +49,15 @@ export default {
 .name {
   margin: 0;
   margin-top: 13px;
-  font-size: 16px;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
+  font-size: $main-fbsize;
+  font-family: $main-font;
+  font-weight: $main-fbolder;
   line-height: 22px;
 }
 .font1 {
-  font-size: 14px;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
+  font-size: $main-fsize;
+  font-family: $main-font;
+  font-weight: $main-fweight;
   color: #999999;
   line-height: 20px;
 }
@@ -68,7 +68,7 @@ export default {
   margin: 8px 16px 13px 0;
   letter-spacing: 0.5px;
   text-align: justify;
-  text-justify:distribute-all-lines;
+  text-justify: distribute-all-lines;
   text-align-last: justify;
 }
 
@@ -83,9 +83,9 @@ export default {
   border-width: 0.5px;
   border-radius: 4px;
   border-color: #3983FF;
-  font-size: 16px;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
-  color: #FFFFFF;
+  font-size: $main-fbsize;
+  font-family: $main-font;
+  font-weight: $main-fweight;
+  color: $color-white;
 }
 </style>

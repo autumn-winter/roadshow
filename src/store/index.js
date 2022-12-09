@@ -8,6 +8,8 @@ const store = new Vuex.Store({
     book_researcher: {},
     datetime: '',
     bookform_data: {},
+    now_bookdetail: {},
+    raw_roads: [],
   },
   mutations:{
     change_book_time(state, book_time) {
@@ -22,6 +24,16 @@ const store = new Vuex.Store({
     submit_bookform(state, bookform_data) {
       state.bookform_data = bookform_data
     },
+    get_now_bookdetail(state, now_bookdetail) {
+      state.now_bookdetail = now_bookdetail
+    },
+    add_bookroad(state, bookform_data) {
+      state.raw_roads.push({
+        imgsrc: '/static/resimg.png', 
+        state:'', 
+        form: bookform_data
+      })
+    }
   },
 })
 export default store

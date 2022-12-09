@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="textWrapper">
+    <div class="textWrapper" ref="info" @scroll="deScroll">
       <p class="name font"> 钻石客户路演预约机制</p>
       <div class="bookContent font">
         <p class="paragraph">1. 2021年12月22日-2021年12月24日为钻石客户锁定期，钻石客户服务预约将不定期高频在本群更新，请各位随时留意。<br/></p>
@@ -15,19 +15,40 @@
         <p class="paragraph">⑸ 本群内所有研究部主动提供对钻石客户的研究服务都是免研究券的，免费服务。<br/></p>
       </div>
     </div>
-    <div class="btn" @click="$router.push({ path:'/bookpage'})">
+    <div class="btn" @click="$router.push({ path:'/bookpage'})" :class="readed ? 'go' : 'notGo'">
       <p class="btnFont">前往在线自助预约</p>
     </div>
   </div>
 </template>
 
 <script>
+import { debounce } from '@/utils/helper'
+export default {
+  data() {
+    return {
+      readed: false,
+      deScroll: ()=>{}
+    }
+  },
+  methods: {
+    infoScroll(e) {
+      if (e.srcElement.scrollHeight-e.srcElement.clientHeight-this.$refs.info.scrollTop<15) {
+					this.readed = true
+				}
+    },
+  },
+  created() {
+    this.deScroll = debounce(this.infoScroll,300)
+  }
+}
+
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/img.scss'; 
+@import '@/styles/img.scss'; 
+
 .textWrapper {
-  height: 600px;
+  height: 570px;
   overflow: scroll;
 }
 .btn{
@@ -35,32 +56,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  @include bg-image-2('../assets/img/bookTip/矩形', 343px, 50px); 
+  @include bg-image-2('~@/assets/img/bookTip/矩形', 343px, 50px); 
 }
 .btnFont {
   margin: 0;
   height: 25px;
   font-size: 18px;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
-  color: #FFFFFF;
+  font-family: $main-font;
+  font-weight: $main-fweight;
+  color: $color-white;
   line-height: 25px;
 }
 .font {
   text-align: left;
-  font-family: PingFangSC-Medium, PingFang SC;
-  color: #333333;
+  font-family: $main-font;
+  color: $color-black;
 }
 .name {
   margin-top: 17px;
   margin-left: 16px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: $main-fbolder;
 }
 .bookContent {
   margin: 17px 16px 0 16px;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: $main-fbsize;
+  font-weight: $main-fweight;
   line-height: 26px;
   line-height: 26px;
 }
@@ -68,6 +89,16 @@
   margin: 10px 0;
 }
 .telFont {
-  color: #3983FF;
+  color: $main-color;
+}
+
+.go {
+	cursor: pointer;
+	pointer-events: auto;
+}
+.notGo {
+	cursor: default;
+  pointer-events: none;
+  opacity: 0.7;
 }
 </style>

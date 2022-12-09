@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import TimeSelect from '../components/TimeSelect.vue'
-import ResSelect from '../components/ResSelect.vue'
+import TimeSelect from '../components/BookPage/TimeSelect.vue'
+import ResSelect from '../components/BookPage/ResSelect.vue'
 export default {
   name: 'TimeBook',
   components:{
@@ -30,6 +30,25 @@ export default {
       active: 0,
     }
   },
+  watch: {
+    active: {
+      handler: function(val) {
+        if(!val) {
+          this.$router.push({path: '/bookpage/timeselect'})
+        }else {
+          this.$router.push({path: '/bookpage/resselect'})
+        }
+      },
+      immediate: true
+    },
+    $route(to, from) {
+      if(to.path=='/bookpage/timeselect'){
+        this.active = 0
+      }else if(to.path=='/bookpage/resselect') {
+        this.active = 1
+      }
+    }
+  },
 }
 </script>
 
@@ -37,17 +56,17 @@ export default {
 .header {
   box-sizing: border-box;
   padding: 17px 16px;
-  width: 375px;
+  width: $main-width;
   height: 86px;
-  background: #3983FF;
+  background: $main-color;
 }
 .headerFont {
   display: inline-block;
   text-align: left;
   font-size: 16px;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
-  color: #FFFFFF;
+  font-family: $main-font;
+  font-weight: $main-fweight;
+  color: $color-white;
   line-height: 26px;
 }
 /deep/ .van-tab__text--ellipsis {
@@ -57,9 +76,9 @@ export default {
     -webkit-box-orient: vertical;
     height: 22px;
     font-size: 16px;
-    font-family: PingFangSC-Regular, PingFang SC;
-    font-weight: 400;
-    color: #333333;
+    font-family: $main-font;
+    font-weight: $main-fweight;
+    color: $color-black;
     line-height: 22px;
 }
 </style>

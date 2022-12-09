@@ -6,17 +6,10 @@
           <img src="../assets/img/homePage/icon／24／用户.png"
             srcset="../assets/img/homePage/icon／24／用户.png 1x, ../assets/img/homePage/icon／24／用户@2x.png 2x, ../assets/img/homePage/icon／24／用户@3x.png 3x"
             sizes="(-webkit-min-device-pixel-ratio: 1) 24px, (-webkit-min-device-pixel-ratio: 2) 48px, (-webkit-min-device-pixel-ratio: 3) 72px"/>
-          <!-- <picture >
-            <source media="(-webkit-min-device-pixel-ratio: 1)" srcset="../assets/img/homePage/icon／24／用户.png" >
-            <source media="(-webkit-min-device-pixel-ratio: 2)" srcset="../assets/img/homePage/icon／24／用户@2x.png" >
-            <source media="(-webkit-min-device-pixel-ratio: 3)" srcset="../assets/img/homePage/icon／24／用户@3x.png">
-            <img src="../assets/img/homePage/icon／24／用户.png" alt="用户头像">
-          </picture> -->
         </div>
         <span class="userFont">{{userName}}</span>
       </div>
       <p class="homeFont">{{homeName}}</p>
-      <!-- <img src="../assets/img/homePage/106900968.png"/> -->
     </div>
 
     <div class="booking">
@@ -48,15 +41,15 @@ export default {
 </script>
 
 <style lang="scss" scoped >
-@import '../styles/img.scss';
+@import '@/styles/img.scss';
 .all {
-  width: 375px;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
-  color: #FFFFFF;
+  width: $main-width;
+  font-family: $main-font;
+  font-weight: $main-fbolder;
+  color: $color-white;
 }
 .homeImg{
-  @include bg-image('../assets/img/homePage/IMG_9563-拷贝6 + 108914392 + 矩形 蒙版', 375px, 250px); 
+  @include bg-image('~@/assets/img/homePage/IMG_9563-拷贝6 + 108914392 + 矩形 蒙版', 375px, 250px); 
 }
 .user {
   display: flex;
@@ -69,7 +62,7 @@ export default {
   width: 38px;
   height: 38px;
   border-radius: 19px;
-  background-color: #3983FF;
+  background-color: $main-color;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,19 +91,19 @@ export default {
 .bookItem1 {
   float: left;
   margin-left: 16px;
-  @include bg-image('../assets/img/homePage/模块', 163px, 120px); 
+  @include bg-image('~@/assets/img/homePage/模块', 163px, 120px); 
 }
 .bookItem2 {
   float: right;
   margin-right: 16px;
-  @include bg-image('../assets/img/homePage/模块备份', 163px, 120px); 
+  @include bg-image('~@/assets/img/homePage/模块备份', 163px, 120px); 
 }
 .bookFont{
   margin-top: 16px;
   margin-left: 16px;
   text-align: left;
   height: 22px;
-  font-size: 16px;
+  font-size: $main-fbsize;
   line-height: 22px;
 }
 .img{
@@ -118,11 +111,11 @@ export default {
   padding: 0 16px;
 }
 .mainImg{
-  @include bg-image('../assets/img/homePage/106900968', 343px, 120px); 
+  @include bg-image('~@/assets/img/homePage/106900968', 343px, 120px); 
   float: left;
 }
 .deImg{
-  @include bg-image('../assets/img/homePage/编组 2', 323px, 20px); 
+  @include bg-image('~@/assets/img/homePage/编组 2', 323px, 20px); 
   float: left;
   margin-left: 10px;
 }
